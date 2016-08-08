@@ -4,10 +4,11 @@ var express = require('express'),
     app = express();
 
 app.use(bodyParser.json());
+app.use(setHeaders);
 app.set('port', (process.env.PORT || 3000));
 
 app.get('/', function(req, res, next){
-    console.log(req);
+    console.log(req.query);
     var userInput = processData(req),
         key = 'f2f26c4abe60a3a41cf5c9ee27d9da60',
         query = userInput.params[0].value,
