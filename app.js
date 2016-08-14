@@ -19,11 +19,14 @@ app.get('/', function(req, res, next){
             console.log(body);
             res.send(body);
         }
+        else{
+            console.error(error);
+        }
     });
 });
 
 app.listen(app.get('port'), function(){
-    console.log('Express started on port ' + app.get('port') + '; press Ctrl-C to terminate.');
+    console.log('Express started on port ' + app.get('port'));
 })
 
 function processData(req){
