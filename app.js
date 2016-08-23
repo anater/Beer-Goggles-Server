@@ -10,7 +10,7 @@ app.set('port', (process.env.PORT || 3000));
 app.get('/', function(req, res, next){
     console.log(req.query);
     var userInput = processData(req),
-        key = 'f2f26c4abe60a3a41cf5c9ee27d9da60',
+        key = process.env.BREWERY_DB_KEY,
         query = userInput.params[0].value,
         url = 'https://api.brewerydb.com/v2/search?key=' + key + '&q=' + query + '&type=beer&withBreweries=Y';
 
